@@ -44,7 +44,7 @@ function Navbar() {
             className={`absolute rounded-2xl mt-4 lg:static top-16 left-0 w-full lg:w-auto bg-black/95 backdrop-blur lg:bg-transparent lg:backdrop-blur-none p-4 lg:p-0 flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-6 transition-all duration-300 ${isOpen ? "block" : "hidden"
               } lg:flex`}
           >
-            {["Home", "Video", "Short film", "Graphics Design", "Contact"].map((link) => (
+            {["Home", "Video", "Short film", "Graphics Design", "Contact"].map((link, index) => (
               <li key={link} className="relative">
                 <a
                   className={`block text-sm px-4 py-2 ${activeLink === link ? "text-white font-bold" : "text-gray-400 hover:text-gray-200"
@@ -58,7 +58,9 @@ function Navbar() {
 
                 {/* Highlight Effect */}
                 {activeLink === link && (
-                  <div className={`bg-white transition-all duration-300 ease-in-out animate-pulse absolute -top-0 left-1/2 h-2 w-8 md:-top-[9px] md:left-1/2 md:h-1 md:w-8 md:-translate-x-1/2 rounded-t-full`}>
+                  <div className={`bg-white transition-all duration-300 ease-in-out animate-pulse absolute -top-0 left-1/2 h-2 w-8 md:-top-[9px] md:left-1/2 md:h-1 md:w-8 md:-translate-x-1/2 rounded-t-full`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
                     <div className="bg-white/20 absolute -top-2 -left-2 h-6 w-12 rounded-full blur-md"></div>
                     <div className="bg-white/20 absolute -top-1 h-6 w-8 rounded-full blur-md"></div>
                     <div className="bg-white/20 absolute top-0 left-2 h-4 w-4 rounded-full blur-sm"></div>

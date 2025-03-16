@@ -55,8 +55,8 @@ const Short = () => {
   }, []);
 
   return (
-    <div id="Video Editor" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10">
-      <h1 className="text-3xl font-bold mb-6 text-center">Video Editor</h1>
+    <div id="Short film" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10">
+      <h1 className="text-3xl font-bold mb-6 text-center">Short & Tiktok</h1>
 
       <ul className="list-none grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-10">
         {linkYT.map((item, index) => (

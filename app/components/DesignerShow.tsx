@@ -1,5 +1,4 @@
 "use client";
-import { checkboxGroup } from '@heroui/react';
 import Image from 'next/image';
 
 export default function DesignerGalleryPage() {
@@ -8,12 +7,7 @@ export default function DesignerGalleryPage() {
     process.env.DESIGNER_IMAGES || '[]'
   );
   
-  const getImageClass = (width: number, height: number) => {
-    const ratio = width / height;
-    if (ratio > 1.5) return "col-span-2 row-span-1"; // แนวนอน
-    if (ratio < 1.5) return "col-span-1 row-span-2"; // แนวตั้ง
-    return "col-span-1 row-span-1"; // สี่เหลี่ยมจัตุรัต
-  }
+
   return (
     <div id="Graphics Design" className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6 text-center">Designer & Photo</h1>

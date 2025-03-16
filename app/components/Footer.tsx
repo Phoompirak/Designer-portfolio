@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTwitter, FaFacebookSquare, FaDribbble, FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
+import { FaFacebookSquare, FaGithub, FaDiscord, FaInstagram } from "react-icons/fa";
 
 const Footer: React.FC = () => {
     const year = '2025';
