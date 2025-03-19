@@ -8,6 +8,8 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
 
+  
+
   return (
     <>
       <motion.div

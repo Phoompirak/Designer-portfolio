@@ -1,12 +1,14 @@
 'use client'
 
 import Image from 'next/image';
+
 import { motion } from "framer-motion"
 
 import { TypeAnimation } from 'react-type-animation';
 
 
 const Header = () => {
+
     return (
         <>
             <div id='Home' className='relative w-full bg-[#0a0a0a] overflow-hidden py-30'>
@@ -61,7 +63,7 @@ const Header = () => {
 
                                 <div>
                                     ผมเป็น
-                                    <div className=" inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:scale-105 hover:shadow-xl">
+                                    <a href='https://www.youtube.com/@phoom300x' className=" inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:scale-105 hover:shadow-xl">
                                         <Image
                                             height={24}
                                             width={24}
@@ -72,11 +74,11 @@ const Header = () => {
                                             className="w-6 h-6 transition-transform duration-300 group-hover:rotate-[10deg]"
                                         />
                                         <span className="text-white text-[clamp(1rem,2.5vw,1.5rem)] font-medium tracking-wide">Youtuber</span>
-                                    </div>
+                                    </a>
 
                                     ประสบการณ์ทำคอนเทนต์เกี่ยวกับเกม
 
-                                    <div className=" inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:scale-105 hover:shadow-xl">
+                                    <a href='#Video' className="cursor-pointer inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:scale-105 hover:shadow-xl">
                                         <Image
                                             height={24}
                                             width={24}
@@ -87,7 +89,7 @@ const Header = () => {
                                             className="w-6 h-6 transition-transform duration-300 group-hover:rotate-[10deg]"
                                         />
                                         <span className="text-white text-[clamp(1rem,2.5vw,1.5rem)] font-medium tracking-wide">Minecraft</span>
-                                    </div>
+                                    </a>
                                     มา 5 ปี
                                 </div>
                                 <div>

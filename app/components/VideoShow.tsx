@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 const linkYT = [
   "https://www.youtube.com/embed/IjGf9vdu1IM",
+  "https://www.youtube.com/embed/XFroiyOmxUo?si=oBo5iVX8vVRQ7ng5",
   "https://www.youtube.com/embed/T28Bk2RPIs0",
   "https://www.youtube.com/embed/TdHDpL7u_wQ",
   "https://www.youtube.com/embed/OHLcffUBAzA",
@@ -24,6 +25,8 @@ const VideoShow = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            {/* Check id URL video youtube */}
+            {/* <h1 className="text-2xl">{item.split("/").pop()?.split("?")[0].includes('XFroiyOmxUo') ? 'video_hover' : 'None'}</h1> */}
             <li className="w-full h-auto">
               <iframe
                 width="100%"
@@ -32,6 +35,7 @@ const VideoShow = () => {
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
+                id={`${item.split("/").pop()?.split("?")[0].includes('XFroiyOmxUo') ? 'video_hover' : null}`}
                 className="rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-2xl"
               />
             </li>
