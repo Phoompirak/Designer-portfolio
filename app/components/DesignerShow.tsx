@@ -1,6 +1,12 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+interface ImageData {
+  file: string;
+  width: number;
+  height: number;
+}
+
 export default function DesignerShow() {
   const images = JSON.parse(process.env.DESIGNER_IMAGES || "[]") || [];
 
@@ -11,7 +17,7 @@ export default function DesignerShow() {
         <p className="text-center text-gray-500">ไม่พบรูปภาพในโฟลเดอร์</p>
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center items-center">
-          {images.map((image: any) => (
+          {images.map((image: ImageData) => (
             <div key={image.file} className="w-full max-w-xs flex flex-col justify-center items-center drop-shadow-2xl rounded-lg bg-white p-4 mx-auto">
               <p className="text-gray-700 text-center truncate">{image.file.replace(/\.(jpg|jpeg|png|gif|webp)$/i, "")}</p>
               <CanvasImage src={`/designer/${image.file}`} />
