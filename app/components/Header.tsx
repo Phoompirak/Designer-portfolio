@@ -35,9 +35,9 @@ const Header = () => {
                                     sequence={[
                                         "I'm a Designer",
                                         2000,
-                                        "รวมผลงานที่น่าสนใจ!",
+                                        "ผลงานที่น่าสนใจ!",
                                         2000,
-                                        "I'm a YouTube Editor",
+                                        "I'm a Editor",
                                         1500,
                                     ]}
                                     // className='animate__rubberBand'
@@ -98,6 +98,21 @@ const Header = () => {
 
                             </motion.div>
 
+                            <div className='scale-90'>
+                                <a href='https://www.youtube.com/@4phoompirakkarajak427' className=" inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:scale-105 hover:shadow-xl">
+                                    <Image
+                                        height={16}
+                                        width={16}
+                                        alt="YouTube"
+                                        src="/youtube.png"
+                                        priority={true}  // โหลดก่อน
+                                        quality={60}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
+                                        className="w-6 h-6 transition-transform duration-300 group-hover:rotate-[10deg]"
+                                    />
+                                    <span className="text-white text-[clamp(1rem,2.5vw,1.5rem)] font-medium tracking-wide">ช่องสำรอง</span>
+                                </a>
+                            </div>
+
 
                         </div>
 
@@ -117,10 +132,9 @@ const Header = () => {
                                 />
                             </div>
                         </motion.div>
-
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 };

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import VideoShow from "./components/VideoShow";
 import Short from "./components/Short";
 import DesignerShow from "./components/DesignerShow";
+import AboutPage from "./components/About";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <VideoShow />
       <Short />
       <DesignerShow />
+      {/* <AboutPage /> */}
       <Footer />
     </div>
   );

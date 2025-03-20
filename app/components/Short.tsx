@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import './css/tiktok.module.css'
 
 const linkYT = [
   {
@@ -51,42 +52,27 @@ const Short = () => {
       script.src = "https://www.tiktok.com/embed.js";
       script.async = true;
       document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      }
     }
   }, []);
 
   return (
-    <div id="Short film" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10">
+    <div id="Short" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10">
       <h1 className="text-3xl font-bold mb-6 text-center">Short & Tiktok</h1>
 
-      <ul className="list-none grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-10">
-        {linkYT.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 200 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <li className="w-full h-auto rounded-2xl">
-              {item.type === "youtube" ? (
-                <iframe
-                  width="100%"
-                  height="315"
-                  src={item.embed}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  className="rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-2xl"
-                />
-              ) : (
-                <div
-                  dangerouslySetInnerHTML={{ __html: item.embed }}
-                  className="tiktok-container"
-                />
-              )}
-            </li>
-          </motion.div>
-        ))}
+      <ul style={{ background: "#0a0a0a", minHeight: "100vh", padding: "20px" }} className="list-none grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-10">
+      {linkYT.map((video, index) => (
+        <motion.div
+          key={index}
+          dangerouslySetInnerHTML={{ __html: video.embed }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        />
+      ))}
       </ul>
     </div>
   );

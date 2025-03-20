@@ -1,0 +1,10 @@
+.tiktok-embed {
+    background: #0a0a0a !important; /* กำหนดพื้นหลัง */
+    color: #ffffff !important; /* เปลี่ยนสีตัวอักษรให้อ่านง่าย */
+    border: none !important; /* ลบเส้นขอบ */
+  }
+  
+  .tiktok-embed a {
+    color: #1da1f2 !important; /* ปรับสีลิงก์ให้มองเห็นได้ */
+  }
+  
