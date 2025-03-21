@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 import { motion } from "framer-motion"
@@ -8,6 +9,17 @@ import { TypeAnimation } from 'react-type-animation';
 
 
 const Header = () => {
+    const images = ["/phoompirak-remove-bg.png", "/phoom2.png"];
+    const [index, setIndex] = useState(0);
+
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    })
 
     return (
         <>
@@ -115,22 +127,23 @@ const Header = () => {
 
 
                         </div>
-
                         <motion.div
-                            initial={{ opacity: 0, x: 200 }}  // เริ่มต้นโปร่งใส และอยู่ขวา 50px
-                            animate={{ opacity: 1, x: 0 }}   // ค่อยๆ ชัดขึ้น และเลื่อนไปตำแหน่งเดิม
-                            transition={{ duration: 0.8 }}   // ใช้เวลา 0.8 วินาที
+                            key={index} // ใช้ key เพื่อให้ motion รู้ว่าต้อง animate
+                            initial={{ opacity: 0, x: 100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -100 }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                            className="z-[1] rounded-full select-none pointer-events-none"
                         >
-                            <div className='z-[1] rounded-[100%] select-none pointer-events-none animate-[fadeInRight_2s_ease-in-out_forwards]'>
-                                <Image
-                                    src={'/phoompirak-remove-bg.png'}
-                                    className='contrast-110 brightness-90'
-                                    width={300} height={300}
-                                    alt='ceo'
-                                    priority={true}  // โหลดก่อน
-                                    quality={60}
-                                />
-                            </div>
+                            <Image
+                                src={images[index]}
+                                width={300}
+                                height={300}
+                                className="object-cover contrast-110 brightness-90"
+                                alt="ceo"
+                                priority
+                                quality={60}
+                            />
                         </motion.div>
                     </div>
                 </div>
