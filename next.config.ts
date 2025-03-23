@@ -30,7 +30,9 @@ export default (async () => {
 
   /** @type {import('next').NextConfig} */
   const nextConfig = {
-    output: 'export', // ทำให้สามารถ export เป็น static site ได้
+    // ทำให้สามารถ export เป็น static site ได้
+    // output: 'export',
+    
     images: {
       unoptimized: true, // ปิดการ optimize รูปภาพเพื่อรองรับ static export
     },

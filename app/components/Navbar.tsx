@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
@@ -8,7 +8,23 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
 
-  
+  const menuRef = useRef<HTMLUListElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // console.log("EVENT:", event.target);
+      if (menuRef.current instanceof Node && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
 
   return (
     <>
@@ -43,10 +59,11 @@ function Navbar() {
 
           {/* Navigation Links */}
           <ul
+            ref={menuRef} // เชื่อมต่อกับ useRef
             className={`absolute rounded-2xl mt-4 lg:static top-16 left-0 w-full lg:w-auto bg-black/95 backdrop-blur lg:bg-transparent lg:backdrop-blur-none p-4 lg:p-0 flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-6 transition-all duration-300 ${isOpen ? "block" : "hidden"
               } lg:flex`}
           >
-            {["Home", "Video", "Short", "Graphics Design", "Contact"].map((link, index) => (
+            {["Home", "About", "Video", "Short", "Graphics Design", "Contact"].map((link, index) => (
               <li key={link} className="relative">
                 <a
                   className={`block text-sm px-4 py-2 ${activeLink === link ? "text-white font-bold" : "text-gray-400 hover:text-gray-200"

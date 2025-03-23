@@ -19,7 +19,7 @@ const Header = () => {
         }, 3000);
 
         return () => clearInterval(interval);
-    })
+    }, [images.length]);
 
     return (
         <>
@@ -27,11 +27,11 @@ const Header = () => {
                 <div>
                     <Image
                         src={'/portfolio.png'}
-                        width={1920}
-                        height={1080}
+                        width={960}
+                        height={540}
                         priority={true}  // โหลดก่อน
-                        quality={60}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
-                        className="w-full h-full md:h-auto object-cover absolute top-0 left-0 z-0 bg-cover bg-top blur-[2px] brightness-50"
+                        quality={10}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
+                        className="w-full h-full md:h-auto object-cover absolute top-0 left-0 z-0 bg-cover bg-top blur-[4px] brightness-50"
                         alt="background-design"
                     />
 
@@ -41,7 +41,7 @@ const Header = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -200 }}  // เริ่มต้นโปร่งใส และอยู่ขวา 50px
                                 animate={{ opacity: 1, x: 0 }}   // ค่อยๆ ชัดขึ้น และเลื่อนไปตำแหน่งเดิม
-                                transition={{ duration: 0.8 }}   // ใช้เวลา 0.8 วินาที
+                                transition={{ duration: 0.5, delay: 2, ease: "easeInOut" }}
                             >
                                 <TypeAnimation
                                     sequence={[
@@ -53,15 +53,14 @@ const Header = () => {
                                         1500,
                                     ]}
                                     // className='animate__rubberBand'
-                                    speed={80}
+                                    speed={90}
                                     repeat={Infinity}
                                     style={{
                                         fontSize: 'clamp(3.5rem, 5.5vw, 7rem)',
-                                        background: 'linear-gradient(to right, #ff416c, #ffb52b)', // ใช้ gradient ที่ blend ดีขึ้น
+                                        background: 'linear-gradient(to right, #ff416c, #ffb52b)',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
-                                        transition: 'all 0.3s ease-out',
-                                        willChange: 'transform, opacity',
+                                        willChange: 'transform, opacity',  // เพิ่มประสิทธิภาพการแสดงผล
                                         borderRadius: '50px',
                                     }}
                                 />
@@ -69,7 +68,7 @@ const Header = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -200 }}  // เริ่มต้นโปร่งใส และอยู่ขวา 50px
                                 animate={{ opacity: 1, x: 0 }}   // ค่อยๆ ชัดขึ้น และเลื่อนไปตำแหน่งเดิม
-                                transition={{ duration: 0.8 }}   // ใช้เวลา 0.8 วินาที
+                                transition={{ duration: 0.6, ease: "easeInOut" }}   // ใช้เวลา 0.8 วินาที
                                 className='text-white text-[clamp(1.5rem,2.5vw,2rem)] flex flex-col flex-wrap gap-2 drop-shadow-4xl shadow-4xl'
                             >
 
@@ -82,7 +81,7 @@ const Header = () => {
                                             alt="YouTube"
                                             src="/youtube.png"
                                             priority={true}  // โหลดก่อน
-                                            quality={60}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
+                                            quality={40}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
                                             className="w-6 h-6 transition-transform duration-300 group-hover:rotate-[10deg]"
                                         />
                                         <span className="text-white text-[clamp(1rem,2.5vw,1.5rem)] font-medium tracking-wide">Youtuber</span>
@@ -95,7 +94,7 @@ const Header = () => {
                                             height={24}
                                             width={24}
                                             priority={true}  // โหลดก่อน
-                                            quality={60}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
+                                            quality={40}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
                                             alt="YouTube"
                                             src="/Bedrock.webp"
                                             className="w-6 h-6 transition-transform duration-300 group-hover:rotate-[10deg]"
@@ -105,10 +104,8 @@ const Header = () => {
                                     มา 5 ปี
                                 </div>
                                 <div>
-                                    ซึ่งมีความสามารถในการทําคอนเทนต์, ทำปกคลิป, ป้ายโฆษณา, ทำสไลด์, หนังสั้น, พัฒนาเว็บไซต์
+                                    ซึ่งมีความสามารถในการทําคอนเทนต์, ทำปกคลิป, ป้ายโฆษณา, ทำสไลด์, พัฒนาเว็บไซต์, ปั้น3D models
                                 </div>
-
-                            </motion.div>
 
                             <div className='scale-90'>
                                 <a href='https://www.youtube.com/@4phoompirakkarajak427' className=" inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:scale-105 hover:shadow-xl">
@@ -124,6 +121,8 @@ const Header = () => {
                                     <span className="text-white text-[clamp(1rem,2.5vw,1.5rem)] font-medium tracking-wide">ช่องสำรอง</span>
                                 </a>
                             </div>
+                            </motion.div>
+
 
 
                         </div>
