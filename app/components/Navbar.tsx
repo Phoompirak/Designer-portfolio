@@ -63,7 +63,7 @@ function Navbar() {
             className={`absolute rounded-2xl mt-4 lg:static top-16 left-0 w-full lg:w-auto bg-black/95 backdrop-blur lg:bg-transparent lg:backdrop-blur-none p-4 lg:p-0 flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-6 transition-all duration-300 ${isOpen ? "block" : "hidden"
               } lg:flex`}
           >
-            {["Home", "About", "Video", "Short", "Graphics Design", "Contact"].map((link, index) => (
+            {["Home", "Video", "Short", "Graphics Design", "About", "Contact"].map((link, index) => (
               <li key={link} className="relative">
                 <a
                   className={`block text-sm px-4 py-2 ${activeLink === link ? "text-white font-bold" : "text-gray-400 hover:text-gray-200"

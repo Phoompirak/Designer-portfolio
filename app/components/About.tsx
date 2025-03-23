@@ -7,23 +7,9 @@ const AboutPage = () => {
   return (
     <div id='About' className="bg-[#0a0a0a] text-gray-200 px-10 py-24">
       <div className="container mx-auto flex flex-col gap-8">
-        {/* About Section */}
-        <section>
-          <h1 className='text-3xl font-bold mb-6 text-pink-300 border-b pb-2'>
-            Soft Skills
-          </h1>
-          <ul>
-            <li>เรียนรู้ด้วยตัวเอง</li>
-            <li>ดนตรี เช่น กีต้าร์โปร่ง, กีต้าร์ไฟฟ้า, ฮาโมนิก</li>
-            <li>ซ่อมอุฟกรณ์ดนตรี, อุฟกรณ์คอมพิวเตอร์</li>
-            <li>ความฉลาดด้านอารมณ์และความเข้าใจผู้อื่น</li>
-            <li>ดูแลสุขภาพเวทเทรนนิ่ง, อาหารคลีน</li>
-          </ul>
-        </section>
-
         {/* Skills Section */}
-        <section>
-          <h2 id='Skills' className='mb-10 text-2xl font-bold text-pink-300'>
+        <section className='flex flex-col justify-center items-center'>
+          <h2 id='Skills' className='mb-10 text-2xl font-bold text-white drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]'>
             My Skills
           </h2>
 
@@ -37,6 +23,19 @@ const AboutPage = () => {
             <SkillCard icon={<SiAdobephotoshop size={28} className="text-blue-600" />} name="Photoshop" color="blue" />
             <SkillCard icon={<SiCanva size={28} className="text-blue-400" />} name="Canva" color="blue" />
           </div>
+        </section>
+        {/* About Section */}
+        <section className='flex flex-col justify-center items-start'>
+          <h1 className='text-3xl font-bold mb-6 text-white border-b pb-2 drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]'>
+            Soft Skills
+          </h1>
+          <ul>
+            <li>เรียนรู้ด้วยตัวเอง</li>
+            <li>ดนตรี เช่น กีต้าร์โปร่ง, กีต้าร์ไฟฟ้า, ฮาโมนิก</li>
+            <li>ซ่อมอุฟกรณ์ดนตรี, อุฟกรณ์คอมพิวเตอร์</li>
+            <li>ความฉลาดด้านอารมณ์และความเข้าใจผู้อื่น</li>
+            <li>ดูแลสุขภาพเวทเทรนนิ่ง, อาหารคลีน</li>
+          </ul>
         </section>
       </div>
     </div>
@@ -74,11 +73,11 @@ const SkillCard = ({ icon, name, color }: SkillCradProps) => {
   return (
     <div className={`relative flex flex-col items-center justify-center p-4 text-white transition-all duration-500 group`}>
       {/* Background Gradient Blur */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradientClass} blur-sm opacity-20 rounded-4xl transition-all duration-500 group-hover:opacity-50 group-hover:blur-lg group-hover:brightness-125`}></div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradientClass} blur-sm opacity-20 rounded-4xl transition-all ease-in-out duration-300 group-hover:opacity-50 group-hover:blur-lg group-hover:brightness-125`}></div>
 
       {/* Card Content */}
       <div className={`relative bg-white/10 backdrop-blur-md rounded-4xl px-8 py-3 flex flex-row gap-2 jutify-center items-center border border-gray-800 
-                      hover:scale-105 hover:shadow-lg ${glowClass} transition-all duration-500`}>
+                      hover:scale-105 hover:shadow-lg ${glowClass} transition-all duration-300 ease-in`}>
         <div className="transition-transform duration-300 hover:scale-110">{icon}</div>
         <h3 className="font-medium text-center text-sm">{name}</h3>
       </div>

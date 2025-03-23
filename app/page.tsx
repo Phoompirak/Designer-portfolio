@@ -16,11 +16,11 @@ export default function Home() {
       </div>
 
       <Header />
-      <AboutPage />
       <VideoShow />
       <Short />
       {/* <DesignerServer /> */}
       <DesignerShow />
+      <AboutPage />
       <Footer />
     </div>
   );

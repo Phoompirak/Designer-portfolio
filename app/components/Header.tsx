@@ -9,7 +9,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 
 const Header = () => {
-    const images = ["/phoompirak-remove-bg.png", "/phoom2.png"];
+    const images = ["/phoompirak-remove-bg.png", '/skin-Phoom-300x.png', "/phoom2.png"];
     const [index, setIndex] = useState(0);
 
 
@@ -57,7 +57,7 @@ const Header = () => {
                                     repeat={Infinity}
                                     style={{
                                         fontSize: 'clamp(3.5rem, 5.5vw, 7rem)',
-                                        background: 'linear-gradient(to right, #ff416c, #ffb52b)',
+                                        backgroundImage: 'linear-gradient(to right, #ff416c, #ffb52b)',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
                                         willChange: 'transform, opacity',  // เพิ่มประสิทธิภาพการแสดงผล

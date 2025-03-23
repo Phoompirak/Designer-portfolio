@@ -13,6 +13,8 @@ const linkYT = [
   "https://www.youtube.com/embed/OHLcffUBAzA",
   "https://www.youtube.com/embed/9v4nWFWp21k?si=KSDSFlSQjrn1fiqO",
   "https://www.youtube.com/embed/m3BeR8m6rQA?si=vvj7S52vFGc9uU0P",
+  'https://www.youtube.com/embed/%20wS71zDJp9sE?si=RSGY73S-4yW1aXh8',
+  'https://www.youtube.com/embed/jVJyOcyO7Qw?si=FQAjCQRXXUkFW_Kk'
 ];
 
 const VideoShow = () => {
