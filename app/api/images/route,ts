@@ -1,0 +1,62 @@
+// import { NextResponse } from "next/server";
+// import fs from "fs";
+// import path from "path";
+// import { promisify } from "util";
+// import sizeOf from "image-size";
+
+// // Convert callbacks to promises
+// const readdir = promisify(fs.readdir);
+// const getSizeOf = promisify(sizeOf);
+
+// interface ImageData {
+//   file: string;
+//   width: number;
+//   height: number;
+// }
+
+// export async function GET() {
+//   try {
+//     // Path to your designer images
+//     const imagesDirectory: string = path.join(process.cwd(), "public", "designer");
+
+//     // Check if directory exists
+//     if (!fs.existsSync(imagesDirectory)) {
+//       return NextResponse.json<ImageData[]>([]);
+//     }
+
+//     // Get all files in the directory
+//     const files: string[] = await readdir(imagesDirectory);
+
+//     // Filter for image files
+//     const imageExtensions: string[] = [".jpg", ".jpeg", ".png", ".gif", ".webp"];
+//     const imageFiles: string[] = files.filter((file) =>
+//       imageExtensions.includes(path.extname(file).toLowerCase())
+//     );
+
+//     // Get image dimensions
+//     const images: ImageData[] = await Promise.all(
+//       imageFiles.map(async (file): Promise<ImageData> => {
+//         try {
+//           const dimensions = await getSizeOf(path.join(imagesDirectory, file));
+//           return {
+//             file,
+//             width: dimensions?.width ?? 300, // Default if undefined
+//             height: dimensions?.height ?? 200, // Default if undefined
+//           };
+//         } catch (err) {
+//           console.error(`Error getting dimensions for ${file}:`, err);
+//           return {
+//             file,
+//             width: 300,
+//             height: 200,
+//           };
+//         }
+//       })
+//     );
+
+//     return NextResponse.json(images);
+//   } catch (error) {
+//     console.error("Error in API route:", error);
+//     return NextResponse.json({ error: "Failed to fetch images" }, { status: 500 });
+//   }
+// }

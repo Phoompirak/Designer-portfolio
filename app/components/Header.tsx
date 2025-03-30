@@ -31,12 +31,12 @@ const Header = () => {
                         height={540}
                         priority={true}  // โหลดก่อน
                         quality={10}     // ลดคุณภาพเพื่อให้โหลดไวขึ้น
-                        className="w-full h-full md:h-auto object-cover absolute top-0 left-0 z-0 bg-cover bg-top blur-[4px] brightness-50"
+                        className="w-full h-full md:h-auto object-cover absolute top-0 left-0 z-0 bg-cover bg-top blur-sm brightness-50"
                         alt="background-design"
                     />
 
 
-                    <div className='flex flex-col lg:flex-row items-center gap-6 justify-between p-10'>
+                    <div className='flex flex-col lg:flex-row items-center gap-6 h-full justify-between p-10'>
                         <div className='text-white z-[1]'>
                             <motion.div
                                 initial={{ opacity: 0, x: -200 }}  // เริ่มต้นโปร่งใส และอยู่ขวา 50px
@@ -56,7 +56,7 @@ const Header = () => {
                                     speed={90}
                                     repeat={Infinity}
                                     style={{
-                                        fontSize: 'clamp(3.5rem, 5.5vw, 7rem)',
+                                        fontSize: 'clamp(2rem, 5vw, 7rem)',
                                         backgroundImage: 'linear-gradient(to right, #ff416c, #ffb52b)',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
@@ -131,17 +131,17 @@ const Header = () => {
                             initial={{ opacity: 0, x: 100 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -100 }}
-                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="z-[1] rounded-full select-none pointer-events-none"
                         >
                             <Image
                                 src={images[index]}
-                                width={300}
-                                height={300}
+                                width={400}
+                                height={400}
                                 className="object-cover contrast-110 brightness-90"
                                 alt="ceo"
                                 priority
-                                quality={60}
+                                quality={30}
                             />
                         </motion.div>
                     </div>

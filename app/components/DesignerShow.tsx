@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { useState } from "react";
 
 interface ImageData {
   file: string;
@@ -9,6 +10,7 @@ interface ImageData {
 
 export default function DesignerShow() {
   const images = JSON.parse(process.env.DESIGNER_IMAGES || "[]") || [];
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <div id="Graphics Design" className="container my-24 mx-auto px-4 flex flex-col gap-10">
@@ -21,9 +23,13 @@ export default function DesignerShow() {
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-6 justify-center items-center">
           {images.map((image: ImageData) => (
-            <div key={image.file} className="w-full p-10 flex flex-col justify-center items-center drop-shadow-2xl rounded-lg bg-white mx-auto">
+            <div
+            key={image.file}
+            className="w-full p-4 flex flex-col justify-center items-center drop-shadow-2xl cursor-pointer rounded-lg bg-white mx-auto"
+            // onClick={() => setSelectedImage(`/designer/${image.file}`)}
+            >
               <p className="text-gray-700 text-center truncate">{image.file.replace(/\.(jpg|jpeg|png|gif|webp)$/i, "")}</p>
-              <CanvasImage src={`/designer/${image.file}`} />
+              <Image width={image.width} height={image.height} src={`/designer/${image.file}`} alt={image.file} />
             </div>
           ))}
 
@@ -36,11 +42,23 @@ export default function DesignerShow() {
         </ul>
       )}
 
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
+        onClick={() => setSelectedImage(null)} >
+          <Image src={selectedImage} className="max-w-full max-h-[90vh] rounded-lg shadow-2xl" alt="Selected Image" />
+          <button className="absolute top-5 right-5 text-white text-3xl"
+          onClick={() => setSelectedImage(null)} >
+            x
+            </button>
+
+        </div>
+      )}
+
       <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4">
         {/* Presentation */}
         <div className="w-full md:w-1/2">
           <h1 className="text-3xl font-bold mb-6 text-center md:text-left">Presentation</h1>
-          <div className="relative w-full aspect-[16/9] max-w-[500px] mx-auto shadow-lg overflow-hidden rounded-lg">
+          <div className="relative w-full aspect-[16/9] max-w-[600px] mx-auto shadow-lg overflow-hidden rounded-lg">
             <p className="text-sm text-gray-700 text-center">โดย Phoompirak Karajak</p>
             <iframe
               loading="lazy"
@@ -97,43 +115,43 @@ export default function DesignerShow() {
   );
 }
 
-interface CanvasImageProps {
-  src: string;
-}
+// interface CanvasImageProps {
+//   src: string;
+// }
 
-function CanvasImage({ src }: CanvasImageProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+// function CanvasImage({ src }: CanvasImageProps) {
+//   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = src;
-    img.crossOrigin = "anonymous";
-    img.onload = () => {
-      const canvas = canvasRef.current;
-      if (canvas) {
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          const containerWidth = canvas.parentElement?.clientWidth || 300;
-          const scaleFactor = containerWidth / img.width;
-          const newWidth = img.width * scaleFactor;
-          const newHeight = img.height * scaleFactor;
+//   useEffect(() => {
+//     const img = new Image();
+//     img.src = src;
+//     img.crossOrigin = "anonymous";
+//     img.onload = () => {
+//       const canvas = canvasRef.current;
+//       if (canvas) {
+//         const ctx = canvas.getContext("2d");
+//         if (ctx) {
+//           const containerWidth = canvas.parentElement?.clientWidth || 300;
+//           const scaleFactor = containerWidth / img.width;
+//           const newWidth = img.width * scaleFactor;
+//           const newHeight = img.height * scaleFactor;
 
-          canvas.width = newWidth;
-          canvas.height = newHeight;
+//           canvas.width = newWidth;
+//           canvas.height = newHeight;
 
-          ctx.drawImage(img, 0, 0, newWidth, newHeight);
-        }
-      }
-    };
-  }, [src]);
+//           ctx.drawImage(img, 0, 0, newWidth, newHeight);
+//         }
+//       }
+//     };
+//   }, [src]);
 
-  return (
-    <>
-      <canvas
-        ref={canvasRef}
-        className="w-full h-auto hover:scale-110 transition-transform duration-300 ease-in rounded-lg"
-        onContextMenu={(e) => e.preventDefault()} // ป้องกันการคลิกขวาเซฟรูป
-      />
-    </>
-  );
-}
+//   return (
+//     <>
+//       <canvas
+//         ref={canvasRef}
+//         className="w-full h-auto hover:scale-110 transition-transform duration-300 ease-in rounded-lg"
+//         onContextMenu={(e) => e.preventDefault()} // ป้องกันการคลิกขวาเซฟรูป
+//       />
+//     </>
+//   );
+// }
