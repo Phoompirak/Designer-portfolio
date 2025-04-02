@@ -4,16 +4,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import YouTubeEmbed from "@/app/components/YoutubeembedClient";
 
+
 const linkYT = [
   "https://www.youtube.com/embed/IjGf9vdu1IM",
   "https://www.youtube.com/embed/XFroiyOmxUo?si=oBo5iVX8vVRQ7ng5",
   "https://www.youtube.com/embed/T28Bk2RPIs0",
   "https://www.youtube.com/embed/-adUmufxI0I?si=1T_yM9l6C0dS-Jnr",
-  "https://www.youtube.com/embed/TdHDpL7u_wQ",
+  "https://www.youtube.com/embed/wS7lzDJp9sE?si=hm0r2xXJ0rZ06OtK",
   "https://www.youtube.com/embed/OHLcffUBAzA",
   "https://www.youtube.com/embed/9v4nWFWp21k?si=KSDSFlSQjrn1fiqO",
   "https://www.youtube.com/embed/m3BeR8m6rQA?si=vvj7S52vFGc9uU0P",
-  'https://www.youtube.com/embed/%20wS71zDJp9sE?si=RSGY73S-4yW1aXh8',
+  'https://www.youtube.com/embed/svZio6I1LCQ?si=JmtSg3KFwMnaf6kC',
   'https://www.youtube.com/embed/jVJyOcyO7Qw?si=FQAjCQRXXUkFW_Kk'
 ];
 
