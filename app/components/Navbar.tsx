@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useMemo, useState } from "react";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
@@ -10,13 +10,15 @@ function Navbar() {
 
   const menuRef = useRef<HTMLUListElement | null>(null);
 
-  const sections = ["Home", "Video", "Short", "Graphics Design", "About", "Contact"]
+  const sections = useMemo(() => 
+    ["Home", "Video", "Short", "Graphics Design", "About", "Contact"]
+  , []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
 
-      for (let section of sections as string[]) {
+      for (const section of sections) {
         const el: HTMLElement = document.querySelector(`#${section}`) as HTMLElement;
         if (el) {
           const offsetTop = el.offsetTop - 80; // 80 คือค่า padding ให้ match กับ navbar
@@ -34,7 +36,7 @@ function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, []);
+  }, [sections, setActiveLink]);
 
 
 
@@ -89,7 +91,7 @@ function Navbar() {
 
                 {/* Highlight Effect */}
                 {activeLink === link && (
-                  <div className="hidden md:">
+                  <div className="hidden lg:block">
                     <div className={`bg-white transition-all  duration-300 ease-in-out animate-pulse absolute -top-0 left-1/2 h-2 w-8 md:-top-[9px] md:left-1/2 md:h-1 md:w-8 md:-translate-x-1/2 rounded-t-full`}
                       style={{ transitionDelay: `${index * 100}ms` }}
                     >

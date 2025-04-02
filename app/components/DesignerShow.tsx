@@ -82,7 +82,7 @@ export default function DesignerShow() {
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-6 justify-center items-center">
           {images
-            .sort((a: ImageData, b: ImageData) => (a.width > a.height ? -1 : a.width < a.height ? 1 : 0))
+            .sort((a: ImageData) => (a.width > a.height ? -1 : a.width < a.height ? 1 : 0))
             .map((image: ImageData) => (
               <div
                 key={image.file}
