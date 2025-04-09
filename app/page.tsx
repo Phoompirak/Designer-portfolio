@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-auto">
       <div className="fixed top-0 left-0 right-0 z-[100]">
         <Navbar />
       </div>

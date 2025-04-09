@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={mitr.className}>
-      <body className="antialiased">
+    <html lang="en" className={`${mitr.className}`}>
+      <body className="">
         {children}
       </body>
     </html>

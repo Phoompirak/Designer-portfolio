@@ -5,7 +5,8 @@ export default function VideoClient({ src }: { src: string }) {
         <video
             className="w-full h-auto object-cover rounded-lg flex-1"
             src={src}
-            controls
+            controls={true}
+            suppressHydrationWarning={true}
         />
     );
 }
