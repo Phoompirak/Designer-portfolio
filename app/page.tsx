@@ -2,8 +2,8 @@
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import VideoShow from "./components/VideoShow";
-import Short from "./components/Short";
 import DesignerShow from "./components/DesignerShow";
+import ShortWrapper from "./components/server-components/ShortWrapper";
 // import DesignerServer from "./components/DesignerServer";
 import AboutPage from "./components/About";
 import Footer from "./components/Footer";
@@ -17,8 +17,7 @@ export default function Home() {
 
       <Header />
       <VideoShow />
-      <Short />
-      {/* <DesignerServer /> */}
+      <ShortWrapper />
       <DesignerShow />
       <AboutPage />
       <Footer />

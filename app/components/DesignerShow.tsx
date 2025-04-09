@@ -17,6 +17,7 @@ export default function DesignerShow() {
     height: 0,
   });
 
+
   // Initialize window size after component mounts
   useEffect(() => {
     const handleResize = () => {
@@ -97,7 +98,7 @@ export default function DesignerShow() {
                     fill
                     src={`/designer/${image.file}`}
                     alt={image.file}
-                    className="object-contain"
+                    className="object-contain select-none"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
@@ -127,7 +128,7 @@ export default function DesignerShow() {
               alt="Selected Image"
               width={isZoomed ? selectedImage.width : calculateImageSize().width}
               height={isZoomed ? selectedImage.height : calculateImageSize().height}
-              className={`transition-all duration-300 ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+              className={`select-nonetransition-all duration-300 ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
               onClick={() => setIsZoomed(!isZoomed)}
               style={{
                 objectFit: 'contain'

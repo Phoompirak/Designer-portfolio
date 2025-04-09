@@ -25,8 +25,23 @@ async function getDesignerImages(designerDir: string) {
   return images;
 }
 
+const shortDir = path.join(__dirname, 'public', 'short');
+async function getShort() {
+  if (!fs.existsSync(shortDir)) {
+    return [];
+  }
+  const files = fs.readdirSync(shortDir);
+  const fileteredFiles = files.filter(file => /\.(mp4)$/i.test(file));
+
+  if (fileteredFiles.length === 0) {
+    return [];
+  }
+  return fileteredFiles;
+}
+
 export default (async () => {
   const designerImages = await getDesignerImages(designerDir);
+  const shortPath = await getShort();
 
   /** @type {import('next').NextConfig} */
   const nextConfig = {
@@ -38,6 +53,7 @@ export default (async () => {
     },
     env: {
       DESIGNER_IMAGES: JSON.stringify(designerImages), // เก็บรายการไฟล์เป็น environment variable
+      SHORT_PATH: JSON.stringify(shortPath),
     },
   };
 
