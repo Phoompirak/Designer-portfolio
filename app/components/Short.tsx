@@ -1,33 +1,8 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import './css/tiktok.module.css'
 import VideoClient from "./VideoClient";
 
-// โหลด Tiktok Embed เมื่อscrollถึง
-export function TT({ children }: { children: React.ReactNode }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // โหลดครั้งเดียว
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return <div ref={ref}>{isVisible ? children : null}</div>;
-}
 
 type Props = {
   shortPath: string[];
@@ -35,7 +10,6 @@ type Props = {
 
 
 const Short = ({ shortPath }: Props) => {
-  const path = process.env.NEXT_PUBLIC_PATH;
 
   return (
     <div id="Short" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10 md:p-8 lg:p-14 overflow-hidden">
@@ -46,7 +20,7 @@ const Short = ({ shortPath }: Props) => {
       >
         {shortPath.map((video, index) => (
           <li key={index} className="flex justify-center">
-            <VideoClient src={`${path ? path : "/public/short/"}${video}`} />
+            <VideoClient src={`/short/${video}`} />
           </li>
         ))}
       </ul>
