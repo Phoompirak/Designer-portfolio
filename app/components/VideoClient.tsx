@@ -18,7 +18,7 @@ export default function VideoClient({ src }: { src: string }) {
                  flex justify-center items-center bg-black/10 rounded-2xl overflow-hidden"
     >
       <video
-        ref={videoRef}
+        // ref={videoRef}
         className="w-full h-full object-cover rounded-2xl shadow-lg hover:scale-105 
                    transition-transform duration-300 ease-out"
         src={src}
@@ -27,7 +27,7 @@ export default function VideoClient({ src }: { src: string }) {
         muted
         loop
         preload="metadata"
-        onPlay={handlePlay}
+        // onPlay={handlePlay}
       />
     </div>
   );
