@@ -116,11 +116,11 @@ export default function DesignerShow() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 backdrop-blur-md bg-black/70 flex justify-center items-center z-50 p-4 animate-fadeIn"
+          className="fixed inset-0 backdrop-blur-md bg-black/70 flex justify-center items-center z-50 p-4 pt-20 animate-fadeIn"
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-full max-h-full scale-100 hover:scale-[1.02] transition-transform duration-300 ease-out animate-zoomIn"
+            className="relative max-w-full max-h-full scale-100 lg:scale-90 transition-transform duration-300 ease-out animate-zoomIn"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
