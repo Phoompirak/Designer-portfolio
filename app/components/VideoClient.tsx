@@ -1,15 +1,14 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function VideoClient({ src }: { src: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasUnmuted, setHasUnmuted] = useState(false);
 
+  // กดเล่นแล้วเปิดเสียง
   const handlePlay = () => {
     const video = videoRef.current;
-    if (video && !hasUnmuted) {
-      video.muted = false;
-      setHasUnmuted(true);
+    if (video) {
+      video.muted = false; // เปิดเสียงตอนกดเล่น
     }
   };
 
