@@ -44,7 +44,7 @@ export default function DesignerShow() {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -116,11 +116,11 @@ export default function DesignerShow() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 p-4"
+          className="fixed inset-0 backdrop-blur-md bg-black/70 flex justify-center items-center z-50 p-4 animate-fadeIn"
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative max-w-full max-h-full"
+            className="relative max-w-full max-h-full scale-100 hover:scale-[1.02] transition-transform duration-300 ease-out animate-zoomIn"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -128,20 +128,22 @@ export default function DesignerShow() {
               alt="Selected Image"
               width={isZoomed ? selectedImage.width : calculateImageSize().width}
               height={isZoomed ? selectedImage.height : calculateImageSize().height}
-              className={`select-nonetransition-all duration-300 ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+              className={`transition-transform duration-500 ease-in-out rounded-lg shadow-2xl ${isZoomed ? 'cursor-zoom-out scale-105' : 'cursor-zoom-in'}`}
               onClick={() => setIsZoomed(!isZoomed)}
-              style={{
-                objectFit: 'contain'
-              }}
+              style={{ objectFit: 'contain' }}
             />
+
+            {/* ปุ่มปิด */}
             <button
-              className="absolute top-4 right-4 bg-black bg-opacity-50 text-white text-2xl w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-100 hover:drop-shadow-[0_0_12px_rgba(10,10,10,0.8)] transition-all duration-300"
+              className="absolute top-4 right-4 bg-black/60 text-white text-2xl w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/20 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.5)] active:scale-75 transition-all duration-300"
               onClick={() => setSelectedImage(null)}
             >
               ×
             </button>
+
+            {/* ปุ่มขยาย/ย่อ */}
             <button
-              className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white text-sm px-3 py-1 rounded hover:bg-opacity-100 transition-colors"
+              className="absolute bottom-4 right-4 bg-black/60 text-white text-sm px-3 py-1 rounded hover:bg-black/20 transition-colors duration-300"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsZoomed(!isZoomed);
@@ -152,6 +154,7 @@ export default function DesignerShow() {
           </div>
         </div>
       )}
+
 
       <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4">
         {/* Presentation */}

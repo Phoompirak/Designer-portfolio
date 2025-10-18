@@ -90,20 +90,22 @@ type Props = {
 const Short = ({ shortPath }: Props) => {
 
   return (
-    <div id="Short" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10 md:p-8 lg:p-14 md:gap-10 overflow-hidden">
-      <h1 className="text-3xl font-bold mb-6 text-center">Short & Tiktok</h1>
+    <div id="Short" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10 md:p-8 lg:p-14 overflow-hidden">
+      <h1 className="text-3xl font-bold text-center">Short & Tiktok</h1>
 
-      <ul style={{ background: "#0a0a0a", minHeight: "100vh", padding: "20px" }} className="list-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-center items-center">
-        {/* โหลดคลิปจากProject /public/short */}
-        {
-          shortPath.map((video, index) => (
-            <li key={index} className="flex-1 py-4 max-w-[605px]">
-              <VideoClient src={`/short/${video}`} />
-            </li>
-          ))
-        }
+      {/* className="list-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-center items-center" */}
+      <ul
+        style={{ background: "#0a0a0a", minHeight: "10vh", padding: "100px 20px" }}
+        className="flex flex-row flex-wrap md:flex-nowrap gap-10 justify-center items-start"
+      >
+        {shortPath.map((video, index) => (
+          <li key={index} className="flex justify-center">
+            <VideoClient src={`/short/${video}`} />
+          </li>
+        ))}
+      </ul>
 
-        {
+      {/* {
           linkYT.map((video, index) => (
             <li key={`tiktok-${index}`} className="flex-1 max-w-[605px] sm:max-w-full">
               <div className="w-full h-auto rounded-lg flex-1">
@@ -113,9 +115,9 @@ const Short = ({ shortPath }: Props) => {
               </div>
             </li>
           ))
-        }
-      </ul>
-    </div>
+        } */}
+    {/* </ul> */}
+    </div >
   );
 };
 
