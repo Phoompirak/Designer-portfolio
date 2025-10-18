@@ -46,7 +46,7 @@ const Short = ({ shortPath }: Props) => {
       >
         {shortPath.map((video, index) => (
           <li key={index} className="flex justify-center">
-            <VideoClient src={`${path}${video}`} />
+            <VideoClient src={`${path ? path : "/public/short/"}${video}`} />
           </li>
         ))}
       </ul>
