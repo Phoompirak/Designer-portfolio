@@ -33,7 +33,9 @@ type Props = {
   shortPath: string[];
 };
 
+
 const Short = ({ shortPath }: Props) => {
+  const path = process.env.NEXT_PUBLIC_PATH;
 
   return (
     <div id="Short" className="bg-[#0a0a0a] text-white flex flex-col p-14 gap-10 md:p-8 lg:p-14 overflow-hidden">
@@ -44,7 +46,7 @@ const Short = ({ shortPath }: Props) => {
       >
         {shortPath.map((video, index) => (
           <li key={index} className="flex justify-center">
-            <VideoClient src={`/short/${video}`} />
+            <VideoClient src={`${path}${video}`} />
           </li>
         ))}
       </ul>
