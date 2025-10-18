@@ -36,7 +36,7 @@ const Header = () => {
                     />
 
 
-                    <div className='flex flex-col lg:flex-row items-center gap-6 h-full justify-between p-10'>
+                    <div className='flex flex-col lg:flex-row items-center gap-6 h-full justify-between px-10 sm:px-20 md:px-32'>
                         <div className='text-white z-[1]'>
                             <motion.div
                                 initial={{ opacity: 0, x: -200 }}  // เริ่มต้นโปร่งใส และอยู่ขวา 50px
@@ -126,6 +126,9 @@ const Header = () => {
 
 
                         </div>
+                        {/* End Text */}
+
+                        {/* Image Slider */}
                         <motion.div
                             key={index} // ใช้ key เพื่อให้ motion รู้ว่าต้อง animate
                             initial={{ opacity: 0, x: 100 }}

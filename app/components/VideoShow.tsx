@@ -9,13 +9,13 @@ const linkYT = [
   "https://www.youtube.com/embed/IjGf9vdu1IM",
   "https://www.youtube.com/embed/XFroiyOmxUo?si=oBo5iVX8vVRQ7ng5",
   "https://www.youtube.com/embed/T28Bk2RPIs0",
-  "https://www.youtube.com/embed/-adUmufxI0I?si=1T_yM9l6C0dS-Jnr",
+  "https://youtu.be/ILuJtCaiN0w?si=YQqs2UrtKRjHvEV1",
   "https://www.youtube.com/embed/wS7lzDJp9sE?si=hm0r2xXJ0rZ06OtK",
   "https://www.youtube.com/embed/OHLcffUBAzA",
   "https://www.youtube.com/embed/9v4nWFWp21k?si=KSDSFlSQjrn1fiqO",
-  "https://www.youtube.com/embed/m3BeR8m6rQA?si=vvj7S52vFGc9uU0P",
+  "https://youtu.be/xP1wRZZfi_U",
   'https://www.youtube.com/embed/svZio6I1LCQ?si=JmtSg3KFwMnaf6kC',
-  'https://www.youtube.com/embed/jVJyOcyO7Qw?si=FQAjCQRXXUkFW_Kk'
+  'https://youtu.be/76oKUemYzi4'
 ];
 
 const VideoShow = () => {
